@@ -45,6 +45,16 @@ MINOR 与 phase 一一对应，指归属：`v0-PH-1` 拥有整个 `0.1.x`。阶�
 | T1 | `Node` 记录 + `kind` 三形状 + arena 冻结写入 | 单元夹具覆盖三形状与冻结边界 | M |
 | T2 | 整树 `free_all` 生命周期夹具 | 泄漏检查（ASan）零报告 | S |
 
+### S1 验收矩阵
+
+| 夹具 | 覆盖 | 判据 |
+| --- | --- | --- |
+| `s1_shapes` | 标量叶 / 有序孩子 / 键值孩子三种 `kind` 的写入与读回 | `kind`、`type_sig`、`count` 与写入一致；子下标可解析 |
+| `s1_freeze` | 「暂存 `Vec` → 冻结进 arena」 | 冻结后修改或释放暂存容器，不影响 arena 内容 |
+| `s1_bounds` | 空树、单节点、深链、越界 `at`、未知 `kind` | 越界与未知返回空节点或明确错误，不崩溃、不读越界 |
+| `s1_free` | 整树 `free_all` | ASan 零泄漏；释放后节点不可再用（文档写明） |
+| `s1_type_sig` | `int` / `double` / `bool` / `Str` 视图的类型签 | 类型签不一致时读路径拒绝，不静默转换 |
+
 ## S2 迭代门面与生成器脚手架
 
 | id | deliverable | verify | effort |

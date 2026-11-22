@@ -47,4 +47,5 @@ applies-to: v0.0.0
 - [x] `ct pkg check .` 通过。
 - [x] `sync-agents.sh --check AGENTS.md` 通过。
 - [ ] `bash tools/check.sh all` 退出码 0（T3 完成后）。
+- [x] 收口不打 tag（`AGENTS.md` 0.3 第 3 条 deviation）；首个 tag 为 S1 的 `v0.1.0`。
 - [x] **任务清单每项可独立验收（6.6 T-6）**：上表逐项给 verify 命令。
