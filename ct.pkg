@@ -1,0 +1,11 @@
+# tree - arena-backed generic tree containers for CT.
+
+# Repository root is the package root; `src/` is the namespace root, so
+# `import tree::<mod>::<Unit>` resolves under `src/tree/`.
+name = tree
+publisher = ct
+ns-root = src
+namespace = tree
+version = 0.0.0
+licence = MIT
+requires = ct >= 0.84.0

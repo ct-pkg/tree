@@ -1,0 +1,6 @@
+# Build output and local caches.
+.ctbuild/
+build/
+*.bin
+.DS_Store
+vendor/
