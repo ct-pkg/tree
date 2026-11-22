@@ -445,4 +445,12 @@ AI_ENGINEERING_SPEC=<主规范路径> ...                          # 覆盖默�
 
 ### 0.3 偏离项
 
-无。
+- deviation: PATCH 位用于 phase 内的 stage 进度（不限于 fix）
+  - 生效日期: 2026-11-22
+  - 条款: 主规范 6.7 V-2 / V-3（PATCH 只记 fix，一次 fix 一个条目）
+  - 范围: `v0-PH-1` 起的所有 stage 化 phase
+  - 放宽: 允许 `S1 → v0.1.0`、`S2 → v0.1.1`、`S3 → v0.1.2` 的 stage 位；MINOR 仍与 phase 一一对应（`v0-PH-1` 拥有整个 `0.1.x`），PATCH 只表示 stage 推进
+  - 理由: 阶段进度需要一个可引用的发布锚点；先例为语言仓 `v0.88.1`–`v0.88.3` 在同一 PH-88 内的 patch 序列
+  - 收敛: 永久口径；`g8-version` 的 PATCH 校验按本条实现（PATCH +1 可追溯到一个 stage，而非必须追溯到 fix issue）
+  - 签字: USER 2026-11-22（会话指令）
+
